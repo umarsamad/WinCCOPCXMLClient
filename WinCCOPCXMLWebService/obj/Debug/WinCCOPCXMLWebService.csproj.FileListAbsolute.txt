@@ -1,0 +1,9 @@
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\bin\Debug\WinCCOPCXMLWebService.exe.config
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\obj\Debug\WinCCOPCXMLWebService.csprojResolveAssemblyReference.cache
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\bin\Debug\WinCCOPCXMLWebService.exe
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\bin\Debug\WinCCOPCXMLWebService.pdb
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\obj\Debug\WinCCOPCXMLWebService.exe
+D:\CHAPs\Dev\WinCCOPCXMLWebService\WinCCOPCXMLWebService\obj\Debug\WinCCOPCXMLWebService.pdb
+D:\CHAPs\Dev\WinCCOPCXMLClient\WinCCOPCXMLWebService\bin\Debug\WinCCOPCXMLWebService.exe.config
+D:\CHAPs\Dev\WinCCOPCXMLClient\WinCCOPCXMLWebService\obj\Debug\WinCCOPCXMLWebService.exe
+D:\CHAPs\Dev\WinCCOPCXMLClient\WinCCOPCXMLWebService\obj\Debug\WinCCOPCXMLWebService.pdb
