@@ -9,7 +9,7 @@
 
     Developer Name: Umar Samad
     Developer Web Address: http://www.umarsamad.com
-    Linked In profile: http://ae.linkedin.com/umarsamad
+    Linked In profile: http://ae.linkedin.com/in/umarsamad
     
     Limitations:
     This Program is able to read and Write form/to WinCC using Open Connectivity Pack. 
@@ -38,7 +38,7 @@ namespace WinCCOPCXMLWebService
             string ServiceURL = "http://192.168.2.103/WinCC-OPC-XML/DAWebservice.asmx";
             
             List<string> TagNames = new List<string>();
-            List<dynamic> TagValues = new List<dynamic>();
+            List<object> TagValues = new List<object>();
 
 /*---------------------------------------------Server Connection  Decleration ----------------------------------------------------------------*/
             myInstance.SetConnection(ServiceURL);
