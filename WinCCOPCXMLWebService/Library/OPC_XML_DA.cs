@@ -56,12 +56,12 @@ namespace WinCCOPCXMLWebService.Library
 
         }
         /*---------------------------------------------Writing Function Decleration ----------------------------------------------------------------*/
-        public void OPCWrite(List<string> TagNames, List<dynamic> TagsValues)
+        public void OPCWrite(List<string> TagNames, List<object> TagsValues)
         {
             /*---------------------------------------------Request Instance Decleration ----------------------------------------------------------------*/
             WriteRequestItemList WriteItemList = new WriteRequestItemList();
             List<string> TagName = new List<string>(TagNames);
-            List<dynamic> TagValue = new List<dynamic>(TagsValues);
+            List<object> TagValue = new List<object>(TagsValues);
 
             RequestOptions.ClientRequestHandle = "";
             RequestOptions.LocaleID = "EN-US";
@@ -95,12 +95,12 @@ namespace WinCCOPCXMLWebService.Library
         }
 
         /*---------------------------------------------Reading Function Decleration ----------------------------------------------------------------*/
-        public dynamic OPCRead(List<string> TagNames)
+        public List<object> OPCRead(List<string> TagNames)
         {
 
 /*---------------------------------------------Request Instance Decleration ----------------------------------------------------------------*/
             List<string> TagName = new List<string>(TagNames);
-            List<dynamic> TagValue = new List<dynamic>();
+            List<object> TagValue = new List<object>();
 
             int TagNos = TagName.Count();
 
@@ -141,7 +141,8 @@ namespace WinCCOPCXMLWebService.Library
             }
             else
             {
-                return "<Error>"; // Console.WriteLine("<Error>");//Output.Text = "<Error>";
+                TagValue.Add("<Error>");
+                return TagValue; // Console.WriteLine("<Error>");//Output.Text = "<Error>";
             }
         
         }
