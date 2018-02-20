@@ -101,13 +101,11 @@ namespace WinCCOPCXMLWebService.Library
 /*---------------------------------------------Request Instance Decleration ----------------------------------------------------------------*/
             List<string> TagName = new List<string>(TagNames);
             List<object> TagValue = new List<object>();
-
-            int TagNos = TagName.Count();
+            int RTagNos = TagName.Count();
 
             ReadRequestItemList ReadItemList = new ReadRequestItemList();
-            ReadRequestItem[] ReadItemArray = new ReadRequestItem[TagNos];
-            ReadRequestItem ReadItem = new ReadRequestItem();
-            
+            ReadItemList.Items = new ReadRequestItem[RTagNos];
+
             RequestOptions.ClientRequestHandle = "";
             RequestOptions.LocaleID = "EN-US";
             RequestOptions.RequestDeadlineSpecified = false;
@@ -116,39 +114,45 @@ namespace WinCCOPCXMLWebService.Library
             RequestOptions.ReturnItemName = false;
             RequestOptions.ReturnItemPath = false;
             RequestOptions.ReturnItemTime = false;
+            ReadItemList.ItemPath = "";
 
-            for (int Looper = 0; Looper < TagNos; Looper++)
+            for (int Looper = 0; Looper < RTagNos; Looper++)
             {
-                ReadItem.ItemPath = "";
-                ReadItem.ItemName = TagName[Looper];
-                ReadItemArray[Looper] = ReadItem;
-                ReadItemList.Items = ReadItemArray;
+
+                ReadItemList.Items[Looper] = new ReadRequestItem();
+                ReadItemList.Items[Looper].ItemName = TagName[Looper];
+
             }
 
+         
+           
 /*---------------------------------------------Reading Function Invoked ----------------------------------------------------------------*/
             myClient.Read(RequestOptions, ReadItemList, out ReplyList, out ErrorList);
 
-            if ((ReplyList.Items[0] != null) && (ReplyList.Items[0].Value != null) && (ReplyList.Items[0].Value.GetType().Name != "XmlNode[]"))
-            {
-
 /*---------------------------------------------Output to Console Invoked ----------------------------------------------------------------*/
-                for (int Looper = 0; Looper < TagNos; Looper++)
+
+            for (int Looper = 0; Looper < ReplyList.Items.Count(); Looper++)
                 {
-                    TagValue.Add(ReplyList.Items[Looper].Value);
-                    //Console.WriteLine(ReplyList.Items[0].Value.ToString());
+                    if ((ReplyList.Items[Looper] != null) && (ReplyList.Items[Looper].Value != null) && (ReplyList.Items[Looper].Value.GetType().Name != "XmlNode[]"))
+                    {
+                        TagValue.Add(ReplyList.Items[Looper].Value);
+
+                        //Console.WriteLine(ReplyList.Items[Looper].Value.ToString());
+
+                        //Value.ToString());
+                    }
+                    else
+                    {
+                    TagValue.Add("<Error>");
+                    }
+
                 }
-                return TagValue; //ReplyList.Items[0].Value.ToString();
-            }
-            else
-            {
-                TagValue.Add("<Error>");
-                return TagValue; // Console.WriteLine("<Error>");//Output.Text = "<Error>";
-            }
-        
-        }
-        
-    }
- }
+                  
+                  return TagValue; 
+             }
+        }     
+  }
+ 
 
 
 
